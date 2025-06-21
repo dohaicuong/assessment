@@ -11,7 +11,7 @@ import { ErrorMessage } from '../components/error-message'
 import { z } from 'zod/v4'
 import { PageHero } from '../components/page-hero'
 
-export const Route = createFileRoute('/')({
+export const Route = createFileRoute('/assessment')({
   component: Index,
   validateSearch: z.object({
     selectedCard: z.string().optional(),
@@ -94,7 +94,10 @@ const CardList = () => {
             <Card.Actions>
               <Button
                 onClick={() => {
-                  navigate({ to: '/', search: { selectedCard: card.id } })
+                  navigate({
+                    to: '/assessment',
+                    search: { selectedCard: card.id },
+                  })
                 }}
               >
                 Select
