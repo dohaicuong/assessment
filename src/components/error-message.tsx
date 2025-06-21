@@ -1,4 +1,3 @@
-import { TriangleAlert } from 'lucide-react'
 import { css } from '../../styled-system/css'
 import { Button } from './button'
 
@@ -12,7 +11,7 @@ export const ErrorMessage = ({ onRetry }: { onRetry?: () => void }) => (
     })}
   >
     <div className={css({ display: 'flex', alignItems: 'center', gap: '2' })}>
-      <TriangleAlert className={css({ color: 'red.800' })} />
+      {/* <TriangleAlert className={css({ color: 'red.800' })} /> */}
       <h4
         className={css({
           textStyle: 'xl',
