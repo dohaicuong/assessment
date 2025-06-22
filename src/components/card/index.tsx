@@ -6,24 +6,35 @@ import { CardTitle } from './card-title'
 import { CardDescription } from './card-description'
 
 export type CardProps = Omit<React.ComponentProps<'div'>, 'className'> & {
-  css?: Styles
+  classes?: {
+    root?: Styles
+    inner?: Styles
+  }
   selected?: boolean
 }
 
-export const Card: React.FC<CardProps> & CardComponents = (props) => (
+export const Card: React.FC<CardProps> & CardComponents = ({
+  classes,
+  children,
+  ...props
+}) => (
   <div
-    className={css({
-      minHeight: 320,
-      width: 240,
-      shadow: {
-        base: 'xl',
-        _hover: '2xl',
+    {...props}
+    data-selected={props.selected || undefined}
+    className={css(
+      {
+        minHeight: 320,
+        width: 240,
+        shadow: {
+          base: 'xl',
+          _hover: '2xl',
+        },
+        transition: 'box-shadow 0.3s ease-in-out',
       },
-      transition: 'box-shadow 0.3s ease-in-out',
-    })}
+      classes?.root,
+    )}
   >
     <div
-      {...props}
       data-selected={props.selected || undefined}
       className={css(
         {
@@ -40,9 +51,11 @@ export const Card: React.FC<CardProps> & CardComponents = (props) => (
           },
           transition: 'box-shadow 0.2s ease-in-out',
         },
-        props.css,
+        classes?.inner,
       )}
-    />
+    >
+      {children}
+    </div>
   </div>
 )
 
