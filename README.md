@@ -1,8 +1,11 @@
-# React + TypeScript + Vite
+# Assessment project
 
-This template provides a minimal setup to get React working in Vite with HMR.
+Deployed on [https://dohaicuong.github.io/assessment](https://dohaicuong.github.io/assessment)
 
-Currently, two official plugins are available:
+## Getting start
+- pnpm install
+- pnpm dev
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Running on dev to see devtools
+- use `Trigger Loading`, `Trigger Error` to test for loading, error state
+![alt text](image.png)
