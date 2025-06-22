@@ -12,26 +12,38 @@ export type CardProps = Omit<React.ComponentProps<'div'>, 'className'> & {
 
 export const Card: React.FC<CardProps> & CardComponents = (props) => (
   <div
-    {...props}
-    data-selected={props.selected || undefined}
-    className={css(
-      {
-        minHeight: 320,
-        width: 240,
-        backgroundColor: 'gray.50',
-        borderRadius: 'xl',
-        shadow: 'xl',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        _selected: {
-          borderWidth: 3,
-          borderColor: 'blue.500',
-        },
+    className={css({
+      minHeight: 320,
+      width: 240,
+      shadow: {
+        base: 'xl',
+        _hover: '2xl',
       },
-      props.css,
-    )}
-  />
+      transition: 'box-shadow 0.3s ease-in-out',
+    })}
+  >
+    <div
+      {...props}
+      data-selected={props.selected || undefined}
+      className={css(
+        {
+          height: '100%',
+          backgroundColor: 'gray.50',
+          borderRadius: 'xl',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+
+          shadow: {
+            base: '0 0 0px 0px rgb(37 99 235 / 80%)',
+            _selected: '0 0 1px 3px rgb(37 99 235 / 80%)',
+          },
+          transition: 'box-shadow 0.2s ease-in-out',
+        },
+        props.css,
+      )}
+    />
+  </div>
 )
 
 type CardComponents = {
